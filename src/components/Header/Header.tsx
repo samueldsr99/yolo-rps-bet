@@ -17,7 +17,7 @@ const Header: FC = () => {
   ];
 
   return (
-    <header className="w-full bg-slate-900 flex justify-center gap-20">
+    <header className="w-full bg-slate-900 flex justify-center gap-20 py-1.5">
       {items.map((item) => (
         <div key={item.label}>
           <span className="text-orange-300 uppercase font-medium">
