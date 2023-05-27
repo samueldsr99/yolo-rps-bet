@@ -3,7 +3,7 @@ import clsx from "classnames/bind";
 
 import { PlayerChoice } from "../../types";
 
-export type ChoiceCard = JSX.IntrinsicElements["button"] & {
+export type ChoiceCardProps = JSX.IntrinsicElements["button"] & {
   variant: PlayerChoice;
   amount?: number;
   isActive?: boolean;
@@ -18,12 +18,20 @@ const classes = clsx.bind({
   amount:
     "w-full h-full border border-blue-500 rounded-full ring ring-blue-500 bg-white overflow-hidden flex justify-center items-center",
   "amount-label": "text-xs text-black font-semibold",
-  active: "ring-2",
+  active: "ring-4",
 });
 
-const ChoiceCard: FC<ChoiceCard> = ({ variant, amount, isActive }) => {
+const ChoiceCard: FC<ChoiceCardProps> = ({
+  variant,
+  amount,
+  isActive,
+  ...props
+}) => {
   return (
-    <button className={classes("root", variant, isActive && "active")}>
+    <button
+      className={classes("root", variant, isActive && "active")}
+      {...props}
+    >
       <div className={classes("amount-container")}>
         {!!amount && amount > 0 && (
           <div className={classes("amount")}>
