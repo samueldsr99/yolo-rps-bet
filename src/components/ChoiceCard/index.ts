@@ -1,2 +1,2 @@
 export { default } from "./ButtonCard";
-export type { ButtonCardProps } from "./ButtonCard";
+export type { ChoiceCardProps } from "./ButtonCard";
