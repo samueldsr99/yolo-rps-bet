@@ -1,18 +1,25 @@
 import { FC } from "react";
 
+import { useGameSelector } from "../../hooks/useGameSelector";
+
 const Header: FC = () => {
+  const { balance, wins, betAmount } = useGameSelector();
+
+  const calcTotalBetAmount = () =>
+    betAmount.paper + betAmount.rock + betAmount.scissors;
+
   const items = [
     {
       label: "balance",
-      value: "XXXX",
+      value: balance,
     },
     {
       label: "bet",
-      value: "XXXX",
+      value: calcTotalBetAmount(),
     },
     {
       label: "win",
-      value: "X",
+      value: wins,
     },
   ];
 
