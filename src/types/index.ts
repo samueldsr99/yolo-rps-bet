@@ -1,6 +1,9 @@
 export type PlayerChoice = "paper" | "rock" | "scissors";
 
-export type GameState = {
+export type BetStage = "pick" | "play" | "result";
+
+export type BetState = {
+  stage: BetStage;
   balance: number;
   wins: number;
   betAmount: {

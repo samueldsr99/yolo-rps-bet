@@ -3,11 +3,11 @@ import { FC } from "react";
 import Button from "../components/Button";
 import ChoiceCard from "../components/ChoiceCard";
 import { useDispatch } from "../hooks/redux";
-import { betOn } from "../redux/game-slice";
-import { useGameSelector } from "../hooks/useGameSelector";
+import { betOn } from "../redux/bet-slice";
+import { useBetSelector } from "../hooks/useBetSelector";
 
 const Actions: FC = () => {
-  const game = useGameSelector();
+  const bet = useBetSelector();
   const dispatch = useDispatch();
 
   return (
@@ -18,17 +18,17 @@ const Actions: FC = () => {
       <div className="mt-6 flex flex-col sm:flex-row justify-center items-center gap-4">
         <ChoiceCard
           variant="rock"
-          amount={game.betAmount.rock}
+          amount={bet.betAmount.rock}
           onClick={() => dispatch(betOn("rock"))}
         />
         <ChoiceCard
           variant="paper"
-          amount={game.betAmount.paper}
+          amount={bet.betAmount.paper}
           onClick={() => dispatch(betOn("paper"))}
         />
         <ChoiceCard
           variant="scissors"
-          amount={game.betAmount.scissors}
+          amount={bet.betAmount.scissors}
           onClick={() => dispatch(betOn("scissors"))}
         />
       </div>

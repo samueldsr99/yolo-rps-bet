@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import gameReducer from "./game-slice";
+import betReducer from "./bet-slice";
 
 export const store = configureStore({
   reducer: {
-    gameReducer,
+    betReducer,
   },
 });
 

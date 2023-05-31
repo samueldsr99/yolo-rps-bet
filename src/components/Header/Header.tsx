@@ -1,10 +1,10 @@
 import { FC } from "react";
 
-import { useGameSelector } from "../../hooks/useGameSelector";
+import { useBetSelector } from "../../hooks/useBetSelector";
 import { calculateTotalBetAmount } from "../../utils";
 
 const Header: FC = () => {
-  const { balance, wins, betAmount } = useGameSelector();
+  const { balance, wins, betAmount } = useBetSelector();
 
   const items = [
     {

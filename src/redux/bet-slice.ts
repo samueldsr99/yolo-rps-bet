@@ -2,10 +2,11 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import _ from "lodash";
 
 import gameConfig from "../game.config";
-import { BetAmountData, GameState, PlayerChoice } from "../types";
+import { BetAmountData, BetState, PlayerChoice } from "../types";
 import { getBetChoicesFromData } from "../utils";
 
-const initialState: GameState = {
+const initialState: BetState = {
+  stage: "pick",
   balance: gameConfig.initialBalance,
   wins: 0,
   betAmount: {
@@ -15,7 +16,7 @@ const initialState: GameState = {
   } satisfies BetAmountData,
 };
 
-export const gameSlice = createSlice({
+export const betSlice = createSlice({
   name: "game",
   initialState,
   reducers: {
@@ -49,9 +50,12 @@ export const gameSlice = createSlice({
 
       return newState;
     },
+    play: (state, action: PayloadAction) => {
+      // generate a random game
+    },
   },
 });
 
-export const { betOn } = gameSlice.actions;
+export const { betOn } = betSlice.actions;
 
-export default gameSlice.reducer;
+export default betSlice.reducer;
