@@ -11,6 +11,7 @@ const initialState: BetState = {
   balance: gameConfig.initialBalance,
   wins: 0,
   game: null,
+  amountWon: 0,
   betAmount: {
     paper: 0,
     rock: 0,
@@ -66,6 +67,7 @@ export const betSlice = createSlice({
         balance: state.balance,
         betAmount: state.betAmount,
         wins: state.wins,
+        amountWon: 0,
       } satisfies BetState;
 
       return newState;
@@ -84,6 +86,7 @@ export const betSlice = createSlice({
           betAmount: state.betAmount,
           wins: state.wins,
           game: state.game,
+          amountWon: 0,
         } satisfies BetState;
       }
 
@@ -92,8 +95,8 @@ export const betSlice = createSlice({
       const betChoicesAmount = getBetChoicesFromData(state.betAmount);
       const amountMultiplier =
         betChoicesAmount === 1
-          ? gameConfig.twoXMultiplier
-          : gameConfig.threeXMultiplier;
+          ? gameConfig.threeXMultiplier
+          : gameConfig.twoXMultiplier;
       const amountWon =
         amountMultiplier * state.betAmount[state.game.playerChoice];
 
@@ -103,6 +106,7 @@ export const betSlice = createSlice({
         betAmount: state.betAmount,
         wins: state.wins + 1,
         game: state.game,
+        amountWon,
       } satisfies BetState;
     },
 
@@ -121,11 +125,14 @@ export const betSlice = createSlice({
           scissors: 0,
         } satisfies BetAmountData,
         game: null,
+        amountWon: 0,
       } satisfies BetState;
     },
+
+    restartGame: () => initialState,
   },
 });
 
-export const { betOn } = betSlice.actions;
+export const { betOn, play, getResults, clear, restartGame } = betSlice.actions;
 
 export default betSlice.reducer;

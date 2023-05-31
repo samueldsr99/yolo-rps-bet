@@ -45,6 +45,12 @@ export class GameEngine {
           : winnerNumber === -1
           ? "player"
           : "computer",
+      winnerChoice:
+        winnerNumber === 0
+          ? null
+          : winnerNumber === -1
+          ? playerChoice
+          : computerChoice,
     };
   }
 }

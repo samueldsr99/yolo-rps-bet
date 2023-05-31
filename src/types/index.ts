@@ -12,6 +12,7 @@ export type BetState = {
     scissors: number;
   };
   game: GameState | null;
+  amountWon: number;
 };
 
 export type Winner = "player" | "computer" | "draw";
@@ -20,6 +21,7 @@ export type GameState = {
   playerChoice: PlayerChoice;
   computerChoice: PlayerChoice;
   winner: Winner;
+  winnerChoice: PlayerChoice | null;
 };
 
 export type BetAmountData = {
