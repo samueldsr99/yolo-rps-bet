@@ -9,3 +9,9 @@ export type GameState = {
     scissors: number;
   };
 };
+
+export type BetAmountData = {
+  paper: number;
+  rock: number;
+  scissors: number;
+};
