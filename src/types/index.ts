@@ -1,6 +1,6 @@
 export type PlayerChoice = "paper" | "rock" | "scissors";
 
-export type BetStage = "pick" | "play" | "result";
+export type BetStage = "pick" | "play" | "results";
 
 export type BetState = {
   stage: BetStage;
@@ -11,6 +11,15 @@ export type BetState = {
     paper: number;
     scissors: number;
   };
+  game: GameState | null;
+};
+
+export type Winner = "player" | "computer" | "draw";
+
+export type GameState = {
+  playerChoice: PlayerChoice;
+  computerChoice: PlayerChoice;
+  winner: Winner;
 };
 
 export type BetAmountData = {
